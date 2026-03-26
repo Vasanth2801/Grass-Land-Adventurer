@@ -4,7 +4,6 @@ public class PatrolEnemy : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float speed = 1f;
-
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
