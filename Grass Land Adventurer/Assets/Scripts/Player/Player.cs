@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool isGrounded;
 
+    [Header("Attack Settings")]
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float attackRadius;
+    [SerializeField] private LayerMask attackLayer;
+
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
@@ -29,6 +34,11 @@ public class Player : MonoBehaviour
         if(moveInput > 0 && transform.localScale.x < 0 || moveInput < 0 &&  transform.localScale.x > 0)
         {
             Flip();
+        }
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Attack();
         }
 
         HandleAnimations();
@@ -54,6 +64,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Attack()
+    {
+        animator.SetTrigger("Attack");
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, attackLayer);
+        foreach(Collider2D hit in hitEnemies)
+        {
+             EnemyHealth eh = hit.GetComponent<EnemyHealth>();
+            if(eh != null)
+            {
+                eh.TakeDamage(15);
+            }
+        }
+    }
+
     void Flip()
     {
         facingDirection *= -1;
@@ -63,6 +87,5 @@ public class Player : MonoBehaviour
     void HandleAnimations()
     {
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
-        animator.SetBool("isJumping", rb.linearVelocity.y > 0.1);
     }
 }
