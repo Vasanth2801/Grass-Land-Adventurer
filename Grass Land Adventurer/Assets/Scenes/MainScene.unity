@@ -739,6 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190717558}
   - component: {fileID: 1190717559}
+  - component: {fileID: 1190717560}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -819,6 +820,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1190717560
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190717557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ffd08197e1cb3643a1ad3af02004d74, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1417264521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1063,7 @@ MonoBehaviour:
   isGrounded: 0
   rb: {fileID: 2017483125}
   firePoint: {fileID: 1468053239}
+  animator: {fileID: 1190717560}
   moveInput: 0
 --- !u!114 &2017483127
 MonoBehaviour:
